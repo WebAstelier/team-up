@@ -10,10 +10,8 @@
     "lint": "nx run-many -t lint"
   },
   "devDependencies": {
-    "@nx/eslint-plugin": "24.0.4",
     "@nx/js": "24.0.4",
-    "@typescript-eslint/parser": "8.72.1",
-    "eslint": "10.14.0",
+    "@nx/oxlint": "24.0.4",
     "nx": "24.0.4",
     "oxfmt": "0.76.0",
     "oxlint": "1.91.0",

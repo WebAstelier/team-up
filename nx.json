@@ -19,10 +19,9 @@
     "lint": {
       "executor": "nx:run-commands",
       "options": {
-        "commands": ["oxlint {projectRoot}", "eslint {projectRoot}"],
-        "parallel": false
+        "command": "oxlint {projectRoot}"
       },
-      "inputs": ["default", "{workspaceRoot}/.oxlintrc.json", "{workspaceRoot}/eslint.config.mjs"],
+      "inputs": ["default", "{workspaceRoot}/.oxlintrc.json"],
       "cache": true
     },
     "test": {
