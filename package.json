@@ -4,13 +4,23 @@
   "private": true,
   "description": "Web app for in-person team building games, played on phones.",
   "license": "MIT",
-  "packageManager": "npm@11.19.1",
+  "scripts": {
+    "format": "oxfmt --write .",
+    "format:check": "oxfmt --check .",
+    "lint": "nx run-many -t lint"
+  },
+  "devDependencies": {
+    "@nx/eslint-plugin": "24.0.4",
+    "@nx/js": "24.0.4",
+    "@typescript-eslint/parser": "8.72.1",
+    "eslint": "10.14.0",
+    "nx": "24.0.4",
+    "oxfmt": "0.76.0",
+    "oxlint": "1.91.0",
+    "typescript": "6.0.3"
+  },
   "engines": {
     "node": "^24.15.0"
   },
-  "devDependencies": {
-    "@nx/js": "24.0.4",
-    "nx": "24.0.4",
-    "typescript": "6.0.3"
-  }
+  "packageManager": "npm@11.19.1"
 }
