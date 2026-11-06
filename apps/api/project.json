@@ -16,7 +16,14 @@
         "bundle": true,
         "thirdParty": false,
         "generatePackageJson": false,
-        "sourcemap": true
+        "sourcemap": true,
+        "assets": [
+          {
+            "glob": "**/*.sql",
+            "input": "apps/api/migrations",
+            "output": "migrations"
+          }
+        ]
       }
     },
     "serve": {

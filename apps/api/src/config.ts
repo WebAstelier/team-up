@@ -1,5 +1,6 @@
 export interface Config {
   port: number;
+  databasePath: string;
 }
 
 const DEFAULT_PORT = 3000;
@@ -16,6 +17,14 @@ const parsePort = (value: string | undefined): number => {
   return port;
 };
 
+const requireValue = (name: string, value: string | undefined): string => {
+  if (value === undefined || value === '') {
+    throw new Error(`${name} is required.`);
+  }
+  return value;
+};
+
 export const loadConfig = (env: Readonly<Record<string, string | undefined>>): Config => ({
   port: parsePort(env['PORT']),
+  databasePath: requireValue('DATABASE_PATH', env['DATABASE_PATH']),
 });

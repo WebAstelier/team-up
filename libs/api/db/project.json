@@ -1,0 +1,11 @@
+{
+  "name": "api-db",
+  "sourceRoot": "libs/api/db/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:data-access", "platform:api"],
+  "targets": {
+    "lint": {},
+    "typecheck": {},
+    "test": {}
+  }
+}
