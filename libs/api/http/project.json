@@ -1,0 +1,11 @@
+{
+  "name": "api-http",
+  "sourceRoot": "libs/api/http/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:util", "platform:api"],
+  "targets": {
+    "lint": {},
+    "typecheck": {},
+    "test": {}
+  }
+}

@@ -1,0 +1,34 @@
+{
+  "name": "api",
+  "sourceRoot": "apps/api/src",
+  "projectType": "application",
+  "tags": ["scope:app", "type:app", "platform:api"],
+  "targets": {
+    "build": {
+      "executor": "@nx/esbuild:esbuild",
+      "outputs": ["{options.outputPath}"],
+      "options": {
+        "platform": "node",
+        "format": ["cjs"],
+        "main": "apps/api/src/main.ts",
+        "outputPath": "dist/apps/api",
+        "tsConfig": "apps/api/tsconfig.json",
+        "bundle": true,
+        "thirdParty": false,
+        "generatePackageJson": false,
+        "sourcemap": true
+      }
+    },
+    "serve": {
+      "executor": "@nx/js:node",
+      "options": {
+        "buildTarget": "api:build",
+        "runtimeArgs": ["--env-file-if-exists=.env"],
+        "inspect": false
+      }
+    },
+    "lint": {},
+    "typecheck": {},
+    "test": {}
+  }
+}

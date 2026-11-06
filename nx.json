@@ -31,10 +31,10 @@
     "test": {
       "executor": "nx:run-commands",
       "options": {
-        "command": "vitest run --config $NX_WORKSPACE_ROOT/vitest.config.ts --root {projectRoot}"
+        "command": "VITEST_PROJECT_ROOT={projectRoot} vitest run --config $NX_WORKSPACE_ROOT/vitest.config.ts --root {projectRoot}"
       },
       "inputs": ["default", "^production", "{workspaceRoot}/vitest.config.ts"],
-      "outputs": ["{projectRoot}/coverage"],
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "cache": true
     }
   }
