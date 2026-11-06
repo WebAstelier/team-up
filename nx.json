@@ -36,6 +36,22 @@
       "inputs": ["default", "^production", "{workspaceRoot}/vitest.config.ts"],
       "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
       "cache": true
+    },
+    "@angular/build:application": {
+      "cache": true,
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"]
+    },
+    "@angular/build:unit-test": {
+      "cache": true,
+      "inputs": ["default", "^production"]
+    }
+  },
+  "generators": {
+    "@nx/angular:application": {
+      "e2eTestRunner": "none",
+      "style": "scss",
+      "unitTestRunner": "vitest-angular"
     }
   }
 }

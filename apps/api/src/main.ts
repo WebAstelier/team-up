@@ -1,6 +1,7 @@
 import { mkdirSync, readdirSync, readFileSync } from 'node:fs';
-import { dirname, join } from 'node:path';
+import { dirname, join, relative } from 'node:path';
 import { serve } from '@hono/node-server';
+import { serveStatic } from '@hono/node-server/serve-static';
 import { loadMigrations, openDatabase, runMigrations } from '@team-up/api/db';
 import { createLogger } from '@team-up/api/http';
 import SqliteDatabase from 'better-sqlite3';
@@ -24,7 +25,14 @@ const migrations = loadMigrations(join(__dirname, 'migrations'), {
 });
 runMigrations(database, migrations, logger, Date.now);
 
-const app = createApp({ logger, now: Date.now });
+// The compiled front end, next to the API in dist. serveStatic expects a path relative to the cwd.
+const webRoot = relative(process.cwd(), join(__dirname, '..', 'web', 'browser'));
+const app = createApp({
+  logger,
+  now: Date.now,
+  serveAsset: serveStatic({ root: webRoot }),
+  serveIndex: serveStatic({ root: webRoot, path: 'index.html' }),
+});
 
 startServer({
   start: (port, onListening) => serve({ fetch: app.fetch, port }, (info) => onListening(info.port)),

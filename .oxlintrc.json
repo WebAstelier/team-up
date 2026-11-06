@@ -110,6 +110,12 @@
           }
         ]
       }
+    ],
+    "typescript/no-extraneous-class": [
+      "error",
+      {
+        "allowWithDecorator": true
+      }
     ]
   },
   "ignorePatterns": ["**/dist/**", "**/tmp/**", "**/coverage/**", "**/.nx/**"]

@@ -10,7 +10,7 @@ export const createRequestLogger =
     await next();
     logger.info('request.completed', {
       method: c.req.method,
-      route: routePath(c, -1),
+      route: routePath(c),
       status: c.res.status,
       durationMs: now() - start,
     });
