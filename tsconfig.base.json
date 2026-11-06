@@ -19,7 +19,9 @@
     "declaration": false,
     "paths": {
       "@team-up/api/http": ["./libs/api/http/src/index.ts"],
-      "@team-up/api/http/testing": ["./libs/api/http/src/testing/index.ts"]
+      "@team-up/api/http/testing": ["./libs/api/http/src/testing/index.ts"],
+      "@team-up/api/db": ["./libs/api/db/src/index.ts"],
+      "@team-up/api/db/testing": ["./libs/api/db/src/testing/index.ts"]
     }
   },
   "exclude": ["node_modules", "dist", "tmp"]
