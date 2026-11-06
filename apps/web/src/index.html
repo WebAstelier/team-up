@@ -5,10 +5,33 @@
     <title>team-up</title>
     <base href="/" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <!-- No icon until the design system provides one. -->
-    <link rel="icon" href="data:," />
+    <meta name="theme-color" media="(prefers-color-scheme: light)" content="#2f6f5e" />
+    <meta name="theme-color" media="(prefers-color-scheme: dark)" content="#6fbfa6" />
+    <link rel="icon" href="/favicon.ico" sizes="16x16 32x32 48x48" />
+    <link rel="icon" href="/icons/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="/icons/apple-touch-icon-180.png" />
+    <!-- Loading screen. Its colors never change, so the theme is not visible until it is applied. -->
+    <style>
+      .loading-screen {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #2f6f5e;
+      }
+      .loading-screen img {
+        width: 6rem;
+        height: 6rem;
+      }
+    </style>
   </head>
   <body>
-    <app-root></app-root>
+    <!-- Angular replaces this content once the theme is applied. -->
+    <app-root>
+      <div class="loading-screen">
+        <img src="/icons/apple-touch-icon-180.png" alt="" />
+      </div>
+    </app-root>
   </body>
 </html>

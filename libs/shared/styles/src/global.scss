@@ -1,0 +1,45 @@
+// Global styles of the app: themes, font and base rules. Components use the tokens.
+@use 'sass:meta';
+@use 'tokens';
+@use '@fontsource-variable/inter/wght.css';
+@include meta.load-css('themes.css');
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  // The text size set on the phone scales the whole interface, since everything is in rem.
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  margin: 0;
+  min-height: 100dvh;
+  background: var(--surface-page);
+  color: var(--ink);
+  font-family: tokens.$font-sans;
+  font-size: tokens.$type-body-size;
+  font-weight: tokens.$type-body-weight;
+  line-height: tokens.$type-body-line-height;
+  overflow-wrap: anywhere;
+}
+
+:focus-visible {
+  outline: 2px solid var(--focus);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
