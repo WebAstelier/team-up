@@ -1,0 +1,25 @@
+{
+  "name": "web-design-system",
+  "sourceRoot": "libs/web/design-system/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:ui", "platform:web"],
+  "targets": {
+    "lint": {},
+    "typecheck": {
+      "executor": "nx:run-commands",
+      "options": { "command": "ngc -p libs/web/design-system/tsconfig.json --noEmit" }
+    },
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/web/design-system/tsconfig.json",
+        "watch": false,
+        "runnerConfig": "libs/web/design-system/vitest.config.ts",
+        "coverageExclude": ["src/**/index.ts"],
+        "coverageThresholds": { "lines": 80, "branches": 80, "functions": 80 }
+      }
+    }
+  }
+}

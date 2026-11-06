@@ -1,0 +1,13 @@
+:host {
+  display: inline-block;
+  width: 8rem;
+  // In rem, it grows with the phone's text size, but must still fit a narrow screen.
+  max-width: 100%;
+  color: var(--brand);
+}
+
+svg {
+  display: block;
+  width: 100%;
+  height: auto;
+}

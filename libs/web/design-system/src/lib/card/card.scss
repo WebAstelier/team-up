@@ -1,0 +1,10 @@
+@use 'tokens';
+
+:host {
+  display: block;
+  // Spacing stops growing with the text size on a narrow screen, to leave room for the text.
+  padding: tokens.$space-5 min(#{tokens.$space-5}, 6.25vw);
+  border-radius: tokens.$radius-lg;
+  background: var(--surface-card);
+  box-shadow: var(--shadow-card);
+}

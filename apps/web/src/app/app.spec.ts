@@ -20,10 +20,11 @@ describe('App', () => {
     }).compileComponents();
   });
 
-  it('holds the router outlet', () => {
+  it('holds the router outlet in the frame', () => {
     const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
 
-    expect(fixture.nativeElement.querySelector('router-outlet')).not.toBeNull();
+    expect(fixture.nativeElement.querySelector('tu-frame router-outlet')).not.toBeNull();
   });
 
   it('translates the page title', async () => {
