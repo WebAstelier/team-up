@@ -13,6 +13,10 @@
       "cache": true
     },
     "typecheck": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "tsc --noEmit -p {projectRoot}/tsconfig.json"
+      },
       "inputs": ["default", "^production"],
       "cache": true
     },
@@ -25,7 +29,12 @@
       "cache": true
     },
     "test": {
-      "inputs": ["default", "^production"],
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "vitest run --config $NX_WORKSPACE_ROOT/vitest.config.ts --root {projectRoot}"
+      },
+      "inputs": ["default", "^production", "{workspaceRoot}/vitest.config.ts"],
+      "outputs": ["{projectRoot}/coverage"],
       "cache": true
     }
   }
