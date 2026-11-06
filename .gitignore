@@ -1,0 +1,35 @@
+# Dépendances et sorties de build
+node_modules/
+dist/
+tmp/
+.nx/
+coverage/
+
+# Secrets et configuration locale (jamais commités)
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+*.p12
+.team-up.local*
+
+# Données locales et base SQLite (jamais commités)
+data/
+*.sqlite
+*.sqlite-*
+*.db
+*.db-*
+backups/
+*.bak
+
+# Fichiers de travail Claude Code (jamais commités)
+.claude/
+
+# Éditeur et OS
+.vscode/*
+!.vscode/extensions.json
+.idea/
+.DS_Store
+Thumbs.db
