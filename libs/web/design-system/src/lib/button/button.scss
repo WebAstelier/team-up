@@ -41,7 +41,7 @@
   color: var(--ink);
 
   &:active:not(:disabled) {
-    background: color-mix(in srgb, var(--surface-inset), var(--ink) 12%);
+    background: var(--surface-inset-pressed);
   }
 }
 
@@ -59,7 +59,7 @@
   color: var(--on-status);
 
   &:active:not(:disabled) {
-    background: color-mix(in srgb, var(--status-no), #000 15%);
+    background: var(--status-no-pressed);
   }
 }
 
