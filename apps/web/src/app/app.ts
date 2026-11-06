@@ -3,11 +3,12 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { Title } from '@angular/platform-browser';
 import { RouterOutlet } from '@angular/router';
 import { TranslocoService } from '@jsverse/transloco';
+import { FrameComponent } from '@team-up/web/layout';
 
 @Component({
-  imports: [RouterOutlet],
+  imports: [FrameComponent, RouterOutlet],
   selector: 'app-root',
-  template: '<router-outlet />',
+  template: '<tu-frame><router-outlet /></tu-frame>',
 })
 export class App {
   public constructor() {

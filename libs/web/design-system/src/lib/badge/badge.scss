@@ -1,0 +1,35 @@
+@use 'tokens';
+
+:host {
+  display: inline-block;
+  padding: tokens.$space-1 tokens.$space-3;
+  border-radius: tokens.$radius-pill;
+  font-size: tokens.$type-label-size;
+  font-weight: tokens.$type-label-weight;
+  line-height: tokens.$type-label-line-height;
+}
+
+:host(.badge--yes) {
+  background: var(--status-yes);
+  color: var(--on-status);
+}
+
+:host(.badge--maybe) {
+  background: var(--status-maybe);
+  color: var(--on-status);
+}
+
+:host(.badge--no) {
+  background: var(--status-no);
+  color: var(--on-status);
+}
+
+:host(.badge--neutral) {
+  background: var(--surface-inset);
+  color: var(--ink-muted);
+}
+
+:host(.badge--active) {
+  background: var(--brand);
+  color: var(--on-brand);
+}

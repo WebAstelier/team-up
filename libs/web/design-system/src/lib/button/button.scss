@@ -1,0 +1,114 @@
+@use 'tokens';
+
+:host {
+  display: inline-flex;
+  // With very large text, the spinner moves above a long label instead of pushing it out.
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: tokens.$space-2;
+  min-height: tokens.$touch-target;
+  // Spacing stops growing with the text size on a narrow screen, to leave room for the text.
+  padding: tokens.$space-2 min(#{tokens.$space-5}, 6.25vw);
+  border: 0;
+  border-radius: tokens.$radius-md;
+  font-family: inherit;
+  font-size: tokens.$type-body-strong-size;
+  font-weight: tokens.$type-body-strong-weight;
+  line-height: tokens.$type-body-strong-line-height;
+  cursor: pointer;
+  transition: background-color tokens.$duration-fast tokens.$easing-standard;
+  -webkit-tap-highlight-color: transparent;
+  touch-action: manipulation;
+}
+
+:host(.button--block) {
+  display: flex;
+  width: 100%;
+}
+
+:host(.button--primary) {
+  background: var(--brand);
+  color: var(--on-brand);
+
+  &:active:not(:disabled) {
+    background: var(--brand-pressed);
+  }
+}
+
+:host(.button--secondary) {
+  background: var(--surface-inset);
+  color: var(--ink);
+
+  &:active:not(:disabled) {
+    background: color-mix(in srgb, var(--surface-inset), var(--ink) 12%);
+  }
+}
+
+:host(.button--ghost) {
+  background: transparent;
+  color: var(--ink);
+
+  &:active:not(:disabled) {
+    background: var(--surface-inset);
+  }
+}
+
+:host(.button--danger) {
+  background: var(--status-no);
+  color: var(--on-status);
+
+  &:active:not(:disabled) {
+    background: color-mix(in srgb, var(--status-no), #000 15%);
+  }
+}
+
+:host(:disabled) {
+  background: var(--surface-inset);
+  color: var(--ink-muted);
+  cursor: default;
+}
+
+:host(.button--ghost:disabled) {
+  background: transparent;
+}
+
+// A loading button keeps its variant colors and its label: only the spinner changes.
+:host(.button--loading.button--primary) {
+  background: var(--brand);
+  color: var(--on-brand);
+}
+
+:host(.button--loading.button--secondary) {
+  background: var(--surface-inset);
+  color: var(--ink);
+}
+
+:host(.button--loading.button--ghost) {
+  color: var(--ink);
+}
+
+:host(.button--loading.button--danger) {
+  background: var(--status-no);
+  color: var(--on-status);
+}
+
+.spinner {
+  flex: none;
+  width: 1.125rem;
+  height: 1.125rem;
+  border-radius: 50%;
+  background: conic-gradient(currentColor 70%, transparent 0);
+  mask: radial-gradient(
+    farthest-side,
+    transparent calc(100% - 0.1875rem),
+    #000 calc(100% - 0.1875rem)
+  );
+  animation: spin 800ms linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
