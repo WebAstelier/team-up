@@ -16,7 +16,12 @@ export default defineConfig({
     unstubGlobals: true,
     coverage: {
       provider: 'v8',
-      reportsDirectory: 'coverage',
+      // Generated output stays at the workspace root, never inside a project.
+      reportsDirectory: resolve(
+        import.meta.dirname,
+        'coverage',
+        process.env['NX_TASK_TARGET_PROJECT'] ?? 'unknown',
+      ),
       reporter: ['text', 'html'],
       include: ['src/**/*.ts'],
       exclude: ['src/**/*.spec.ts', 'src/**/index.ts', 'src/testing/**', 'src/main.ts'],
