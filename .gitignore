@@ -3,6 +3,7 @@ node_modules/
 dist/
 tmp/
 .nx/
+.angular/
 coverage/
 
 # Secrets and local configuration (never committed)
