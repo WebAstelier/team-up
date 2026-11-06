@@ -7,9 +7,26 @@
     "production": ["default", "!{projectRoot}/**/*.spec.ts", "!{projectRoot}/src/testing/**/*"]
   },
   "targetDefaults": {
-    "build": { "dependsOn": ["^build"], "inputs": ["production", "^production"], "cache": true },
-    "typecheck": { "inputs": ["default", "^production"], "cache": true },
-    "lint": { "inputs": ["default"], "cache": true },
-    "test": { "inputs": ["default", "^production"], "cache": true }
+    "build": {
+      "dependsOn": ["^build"],
+      "inputs": ["production", "^production"],
+      "cache": true
+    },
+    "typecheck": {
+      "inputs": ["default", "^production"],
+      "cache": true
+    },
+    "lint": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "oxlint {projectRoot}"
+      },
+      "inputs": ["default", "{workspaceRoot}/.oxlintrc.json"],
+      "cache": true
+    },
+    "test": {
+      "inputs": ["default", "^production"],
+      "cache": true
+    }
   }
 }

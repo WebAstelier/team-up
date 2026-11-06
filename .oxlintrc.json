@@ -1,0 +1,116 @@
+{
+  "$schema": "./node_modules/oxlint/configuration_schema.json",
+  "plugins": ["typescript", "unicorn", "oxc", "import", "vitest"],
+  "jsPlugins": ["@nx/oxlint/boundaries-plugin"],
+  "categories": {
+    "correctness": "error",
+    "suspicious": "error"
+  },
+  "rules": {
+    "typescript/ban-ts-comment": [
+      "error",
+      {
+        "ts-ignore": "allow-with-description",
+        "ts-expect-error": "allow-with-description",
+        "ts-nocheck": true,
+        "minimumDescriptionLength": 10
+      }
+    ],
+    "typescript/no-explicit-any": "error",
+    "@nx/enforce-module-boundaries": [
+      "error",
+      {
+        "enforceBuildableLibDependency": false,
+        "allow": [],
+        "depConstraints": [
+          {
+            "sourceTag": "scope:party",
+            "onlyDependOnLibsWithTags": ["scope:party", "scope:shared", "type:models"]
+          },
+          {
+            "sourceTag": "scope:participant",
+            "onlyDependOnLibsWithTags": ["scope:participant", "scope:shared", "type:models"]
+          },
+          {
+            "sourceTag": "scope:action",
+            "onlyDependOnLibsWithTags": ["scope:action", "scope:shared", "type:models"]
+          },
+          {
+            "sourceTag": "scope:engine",
+            "onlyDependOnLibsWithTags": ["scope:engine", "scope:shared", "type:models"]
+          },
+          {
+            "sourceTag": "scope:killer",
+            "onlyDependOnLibsWithTags": ["scope:killer", "scope:shared", "type:models"]
+          },
+          {
+            "sourceTag": "scope:shared",
+            "onlyDependOnLibsWithTags": ["scope:shared"]
+          },
+          {
+            "sourceTag": "scope:app",
+            "onlyDependOnLibsWithTags": [
+              "scope:party",
+              "scope:participant",
+              "scope:action",
+              "scope:engine",
+              "scope:killer",
+              "scope:shared"
+            ]
+          },
+          {
+            "sourceTag": "type:feature",
+            "onlyDependOnLibsWithTags": [
+              "type:feature",
+              "type:data-access",
+              "type:ui",
+              "type:util",
+              "type:models"
+            ]
+          },
+          {
+            "sourceTag": "type:data-access",
+            "onlyDependOnLibsWithTags": ["type:data-access", "type:util", "type:models"]
+          },
+          {
+            "sourceTag": "type:ui",
+            "onlyDependOnLibsWithTags": ["type:ui", "type:util", "type:models"]
+          },
+          {
+            "sourceTag": "type:util",
+            "onlyDependOnLibsWithTags": ["type:util", "type:models"]
+          },
+          {
+            "sourceTag": "type:models",
+            "onlyDependOnLibsWithTags": ["type:models"],
+            "bannedExternalImports": [
+              "@angular/*",
+              "@ngrx/*",
+              "rxjs",
+              "rxjs/*",
+              "hono",
+              "hono/*",
+              "@hono/*",
+              "better-sqlite3"
+            ]
+          },
+          {
+            "sourceTag": "platform:web",
+            "onlyDependOnLibsWithTags": ["platform:web", "platform:shared"],
+            "bannedExternalImports": ["hono", "hono/*", "@hono/*", "better-sqlite3"]
+          },
+          {
+            "sourceTag": "platform:api",
+            "onlyDependOnLibsWithTags": ["platform:api", "platform:shared"],
+            "bannedExternalImports": ["@angular/*", "@ngrx/*"]
+          },
+          {
+            "sourceTag": "platform:shared",
+            "onlyDependOnLibsWithTags": ["platform:shared"]
+          }
+        ]
+      }
+    ]
+  },
+  "ignorePatterns": ["**/dist/**", "**/tmp/**", "**/coverage/**", "**/.nx/**"]
+}
