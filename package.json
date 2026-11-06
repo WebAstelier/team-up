@@ -1,0 +1,16 @@
+{
+  "name": "team-up",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Web app for in-person team building games, played on phones.",
+  "license": "MIT",
+  "packageManager": "npm@11.19.1",
+  "engines": {
+    "node": "^24.15.0"
+  },
+  "devDependencies": {
+    "@nx/js": "24.0.4",
+    "nx": "24.0.4",
+    "typescript": "6.0.3"
+  }
+}
