@@ -17,7 +17,10 @@
     "skipLibCheck": true,
     "sourceMap": true,
     "declaration": false,
-    "paths": {}
+    "paths": {
+      "@team-up/api/http": ["./libs/api/http/src/index.ts"],
+      "@team-up/api/http/testing": ["./libs/api/http/src/testing/index.ts"]
+    }
   },
   "exclude": ["node_modules", "dist", "tmp"]
 }
