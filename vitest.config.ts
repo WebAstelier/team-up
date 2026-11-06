@@ -1,7 +1,10 @@
+import { resolve } from 'node:path';
 import { defineConfig } from 'vitest/config';
 
 // Shared unit test configuration. Each project runs it with its own root.
 export default defineConfig({
+  // Keep the cache at the root: with --root, Vite would create node_modules in each project.
+  cacheDir: resolve(import.meta.dirname, 'node_modules/.vite'),
   resolve: {
     tsconfigPaths: true,
   },
