@@ -16,11 +16,11 @@ export default defineConfig({
     unstubGlobals: true,
     coverage: {
       provider: 'v8',
-      // Generated output stays at the workspace root, never inside a project.
+      // Same path as the project, at the workspace root: coverage/apps/api, coverage/libs/api/http.
       reportsDirectory: resolve(
         import.meta.dirname,
         'coverage',
-        process.env['NX_TASK_TARGET_PROJECT'] ?? 'unknown',
+        process.env['VITEST_PROJECT_ROOT'] ?? 'unknown',
       ),
       reporter: ['text', 'html'],
       include: ['src/**/*.ts'],
