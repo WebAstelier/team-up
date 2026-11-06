@@ -1,0 +1,23 @@
+{
+  "name": "shared-styles",
+  "sourceRoot": "libs/shared/styles/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:util", "platform:shared"],
+  "targets": {
+    "generate-tokens": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON libs/shared/styles/scripts/generate-tokens.mts"
+      }
+    },
+    "check-tokens": {
+      "executor": "nx:run-commands",
+      "options": {
+        "command": "node --disable-warning=MODULE_TYPELESS_PACKAGE_JSON libs/shared/styles/scripts/generate-tokens.mts --check"
+      }
+    },
+    "lint": {},
+    "typecheck": {},
+    "test": {}
+  }
+}

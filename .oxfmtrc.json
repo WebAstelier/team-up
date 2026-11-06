@@ -2,5 +2,9 @@
   "$schema": "./node_modules/oxfmt/configuration_schema.json",
   "printWidth": 100,
   "singleQuote": true,
-  "ignorePatterns": ["package-lock.json"]
+  "ignorePatterns": [
+    "libs/shared/styles/src/_tokens.scss",
+    "libs/shared/styles/src/themes.css",
+    "package-lock.json"
+  ]
 }

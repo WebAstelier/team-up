@@ -1,0 +1,22 @@
+{
+  "name": "web-theme",
+  "sourceRoot": "libs/web/theme/src",
+  "projectType": "library",
+  "tags": ["scope:shared", "type:data-access", "platform:web"],
+  "targets": {
+    "lint": {},
+    "typecheck": {},
+    "test": {
+      "executor": "@angular/build:unit-test",
+      "outputs": ["{workspaceRoot}/coverage/{projectRoot}"],
+      "options": {
+        "buildTarget": "web:build:development",
+        "tsConfig": "libs/web/theme/tsconfig.json",
+        "watch": false,
+        "runnerConfig": "libs/web/theme/vitest.config.ts",
+        "coverageExclude": ["src/testing/**", "src/**/index.ts"],
+        "coverageThresholds": { "lines": 80, "branches": 80, "functions": 80 }
+      }
+    }
+  }
+}
